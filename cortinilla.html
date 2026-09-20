@@ -13,6 +13,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23140b1e'/%3E%3Cg fill='none' stroke='%23a874e8' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='50' cy='24' r='5' fill='%23a874e8' stroke='none'/%3E%3Cpath d='M50 30 L50 50'/%3E%3Cpath d='M50 50 L30 75'/%3E%3Cpath d='M50 50 L50 78'/%3E%3Cpath d='M50 50 L70 75'/%3E%3C/g%3E%3C/svg%3E">
+
+    <style>
+/* Paleta de colores y lista de fuentes */
+     :root {
+        --bg: #140b1e;
+        --ink: #f5eefc;
+        --ink-mute: rgba(245,238,252,0.68);
+        --ink-dim: rgba(245,238,252,0.4);
+        --line: rgba(245,238,252,0.14);
+        --accent: #a874e8;
+        --accent-2: #7030a0;
+        --accent-onk: #1b0f2e;
+        --grand-1: #a874e8;
+        --grand-2: #7030a0;
+        --grand-3: #c25fd1;
+        --grand-4: #4c2e7a;
+        --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        --display: "Space Grotesk", var(--sans);
+        --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+     }
+/* Estilo general de la página */
+     body{
+        min-height: 100svh;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        position: relative;
+        padding:1.5rem;
+     }
+/* Estilo del pié de página */
+     footer {
+       position: fixed;
+       bottom: 1.4rem;
+       left: 0; right: 0;
+       text-align: center;
+       font-family: var(--mono);
+       font-size: .72rem;
+       color: var(--ink-dim);
+     }
+    </style>
 </head>
 
 <body>
