@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23140b1e'/%3E%3Cg fill='none' stroke='%23a874e8' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='50' cy='24' r='5' fill='%23a874e8' stroke='none'/%3E%3Cpath d='M50 30 L50 50'/%3E%3Cpath d='M50 50 L30 75'/%3E%3Cpath d='M50 50 L50 78'/%3E%3Cpath d='M50 50 L70 75'/%3E%3C/g%3E%3C/svg%3E">
 
-    <style>
+<style>
         
 /* Paleta de colores y lista de fuentes */
      :root {
@@ -52,39 +52,11 @@
         padding:1.5rem;
      }
 
-/* Estilo del pie de página */
-     footer {
-       position: fixed;
-       bottom: 1.4rem;
-       left: 0; right: 0;
-       text-align: center;
-       font-family: var(--mono);
-       font-size: .72rem;
-       color: var(--ink-dim);
-     }
-
 /* CSS reseteo */  
-*, *::before, *::after {box-sizing: border-box; margin: 0;}
-html {-webkit-text-size-adjust: 100%;}
+    *, *::before, *::after {box-sizing: border-box; margin: 0;}
+    html {-webkit-text-size-adjust: 100%;}
 
-/* Estilo al cuerpo */
-    body {
-        min-height: 100svh;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--fondo);
-        color: var(--texto);
-        font-family: var(--fuente-base);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        overflow-x: hidden;
-        position: relative;
-        padding: 1.5rem;
-    }
-
-    /* Estilo y efecto del fondo */
+/* Estilo y efecto del fondo */
     .fondo-degradado {
         position: fixed;
         inset: 0;
@@ -107,42 +79,149 @@ html {-webkit-text-size-adjust: 100%;}
         .fondo-degradado {animation: none; }
     }
 
+/* rejilla del fondo */
+    .fondo-cuadricula {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background-image: 
+            linear-gradient(var(--linea) 1px, transparent 1px),
+            linear-gradient(90deg, var(--linea) 1px, transparent 1px);
+        background-size: 56px 56px;
+        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 90%);
+                mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 90%);    
+    }
+
+    .tarjeta {
+        width: 100%;
+        max-width: 34rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+/*Root Notes */
+    .marca {
+      font-family: var(--fuente-titulos);
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.2rem;
+    }
+
+    .marca span { color: var(--acento);}
+
+/* Estado "En contrucción": animación y esilo*/
+    .estado {
+
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        padding: .5rem .9rem;
+        border-radius: 999px;
+        border: 1px solid var(--linea);
+        font-family: var(--fuente-mono);
+        font-size: .78rem;
+    }
+    .estado-dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--acento);
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--acento) 22%, transparent);
+        animation: pulso 2.4s ease-in-out infinite;
+    }
+    @keyframes pulso {
+        0%, 100% {opacity: 1;}
+        50% {opacity: .45;}
+    }
+    @media (prefers-reduced-motion: reduce){
+        .estado-dot {animation:none;}
+    }
+
+/* Título nivel 1*/
+    h1 {
+        font-family: var(--fuente-titulos);
+        font-weight: 600;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-size: clamp(2rem, 6vw, 3rem);
+        max-width: 18ch;
+        margin-bottom: 1.1rem;
+    }
+
+    h1 em {
+        font-style: normal;
+        background: linear-gradient(120deg, var(--degradado-1), var(--degradado-3));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    p.cexplicativo {
+        color: var(--texto-suave);
+        font-size: 1.02rem;
+        max-width: 40ch;
+        margin-bottom: 2.4rem;
+    }
+/* Estilo del botón "Escribirme"*/
+    .botonE {
+        display: inline-flex;
+        align-items: center;
+        gap: .55rem;
+        padding: .85rem 1.6rem;
+        border-radius: 999px;
+        font-family: var(--fuente-titulos);
+        font-weight: 600;
+        font-size: .95rem;
+        color: var(--texto-sobre-acento);
+        background: linear-gradient(135deg, var(--degradado-1), var(--degradado-2));
+        box-shadow: 0 10px 30px -8px color-mix(in srgb, var(--acento-2) 55%, transparent);
+        transition: transform .3s cubic-bezier(0.16,1,0.3,1), box-shadow .3s cubic-bezier(0.16,1,0.3,1); 
+    }
+    .botonE:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px -8px color-mix(in srgb, var(--acento-2) 65%, transparent);;
+    }
+    .botonE svg {width: 16px; height: 16px; flex-shrink: 0;}
+    
+/* Estilo del pie de página */
+     footer {
+       position: fixed;
+       bottom: 1.4rem;
+       left: 0; right: 0;
+       text-align: center;
+       font-family: var(--fuente-mono);
+       font-size: .72rem;
+       color: var(--texto-tenue);
+     }
     </style>
 </head>
 
 <body>
 
-
-</body>
-
     <div class ="fondo-degradado" aria-hidden="true"></div>
     <div class="fondo-cuadricula" aria-hidden="true"></div>
-    <main class="card">
-        <p class="brand">
-           "Root"
-           <span>Notes</span> 
-        </p>
-        <span class="status">
-            <span class="status-dot"></span>
-            " En Contrucción "
+    <main class="tarjeta">
+        <p class="marca">Root<span>Notes</span></p>
+
+        <span class="estado">
+            <span class="estado-dot"></span>
+            En Contrucción
         </span>
+
         <h1>
-            "Estoy preparado "
-            <em>algo nuevo</em>
-            "."
+            Estoy preparando <em>algo nuevo</em>.
         </h1>
-        <p class ="lead">
-            " Mi portafolios y blog están de camino. 
-            Mientras tanto, pueden contactar conmigo
-            por el siguiente botón"
+
+        <p class ="cexplicativo">
+            Mi blog está de camino. Mientras tanto, pueden contactar conmigo por el siguiente botón
         </p>
-        <a class="btn" href="mailto:javi.martinez.lpz@outlook.com">
-            " Escribirme "
-            <svg vieBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                <path d="m22 6-10 7L2 6"></path>
-            </svg>
+
+        <a class="botonE" href="mailto:javi.martinez.lpz@outlook.com">
+            Escribirme
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg>
         </a>
 </main>
 <footer>JML · España</footer>
+
+</body>
 </html>
